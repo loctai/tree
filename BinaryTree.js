@@ -259,6 +259,26 @@ class BinarySearchTree {
 
         return Math.max(leftHeight, rightHeight) + 1;
     }
+    
+    depth() {
+        return this._depthTree(this.root);
+    }
+
+    _depthTree(node) {
+
+        if (node === null)
+            return 0;
+
+        let leftDepth = this._depthTree(node.left);
+        let rightDepth = this._depthTree(node.right);
+
+
+        if (leftDepth > rightDepth)
+            return (leftDepth + 1);
+        else
+            return (rightDepth + 1);
+    }
+
 }
 let nodes = [8, 3, 10, 1, 6, 14, 4, 7, 13];
 
